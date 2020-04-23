@@ -128,7 +128,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR),
 #BASE_DIR是项目根目录
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'data').replace('\\', '/')     #设置静态文件路径为主目录下的media文件夹
 MEDIA_URL = '/data/'
 

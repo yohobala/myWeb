@@ -65,6 +65,7 @@ class We():
     #img_path = path+file.split('.')[0]+'.jpg'
     img_path = os.path.dirname(os.getcwd())+'/webGIS/isogram/static/isogram/'+file.split('.')[0]+'.jpg'
     img.save(img_path)
+    image = '/static/isogram/'+file.split('.')[0]+'.jpg'
 
-    return img_path
+    return image
 
