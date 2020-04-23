@@ -63,9 +63,9 @@ class We():
             pixels.append((px, py))
         draw.polygon(pixels, outline=(255, 255, 255), fill=(R, G, B))
     #img_path = path+file.split('.')[0]+'.jpg'
-    img_path = os.path.dirname(os.getcwd())+'/webGIS/isogram/static/isogram/'+file.split('.')[0]+'.jpg'
+    img_path = os.path.dirname(os.getcwd())+'/webGIS/data/static/isogram/'+file.split('.')[0]+'.jpg'
     img.save(img_path)
-    image = '/static/isogram/'+file.split('.')[0]+'.jpg'
+    image = '/data/static/isogram/'+file.split('.')[0]+'.jpg'
 
     return image
 
