@@ -1,6 +1,8 @@
 from django.urls import path
 
 from . import views
+
+app_name = 'polls' #命名空间
 #这是这个app的链接
 urlpatterns = [
     path('', views.index, name='index'),

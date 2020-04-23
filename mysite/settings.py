@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import channels
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,8 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 #包含的所有app,CovidConfig类写在COVID/apps.py中
 INSTALLED_APPS = [
+    'homepage',
     'COVID.apps.CovidConfig',
     'polls.apps.PollsConfig',
+    'isogram.apps.GisConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +48,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -120,3 +123,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/'),
+    os.path.join(BASE_DIR),
+#BASE_DIR是项目根目录
+]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'data').replace('\\', '/')     #设置静态文件路径为主目录下的media文件夹
+MEDIA_URL = '/data/'
+

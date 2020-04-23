@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="input-group" method="get" action="search/">
+    <input type="text" class="form-control" name="q" placeholder="输入搜索内容...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="submit">搜索</button>
+    </span>
+    {% csrf_token %}
+</form>
+</body>
+</html>

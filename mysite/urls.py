@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf.urls import  url
+from django.conf import settings
+from django.conf.urls.static import static
 #总链接，为了连接到每个app,如果不设置，urls里面就找不到，比如不设置COVID
 #就不能打开127.0.0.1:8000/COVID
 urlpatterns = [
+    path('',include('homepage.urls')),
     path('COVID/',include('COVID.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-]
+    path('isogram/',include('isogram.urls')),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

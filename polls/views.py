@@ -10,7 +10,7 @@ def index(request):
     context = {
         'latest_question_list': latest_question_list,
     }
-    return render(request, 'polls/index.html', context)#载入模板，填充上下文，再返回由它生成的 HttpResponse 对象
+    return render(request, 'polls/showing.html', context)#载入模板，填充上下文，再返回由它生成的 HttpResponse 对象
 
 def detail(request, question_id):
     try:
@@ -24,7 +24,7 @@ def results(request, question_id):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
 
-    return render(request, 'polls/index.html', context)
+    return render(request, 'polls/showing.html', context)
 
 def vote(requset, question_id):
     return  HttpResponse("你正在给{0}问题投票".format(question_id))
