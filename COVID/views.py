@@ -13,8 +13,8 @@ def index(request):
 def country(request):
     Country_name = request.GET.get('q')
     print(Country_name)
-    if Country_name == 'World' or Country_name == '全球':
-        Country_name = 'World'
+    if Country_name == 'World' or Country_name == '全球' or Country_name =='world':
+        Country_name = 'world'
     else:
         try:
             list =  open(os.path.dirname(os.getcwd())+'/webGIS/crawler/country.csv', 'r')
