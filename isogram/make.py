@@ -108,6 +108,5 @@ class make():
     img_path = os.path.dirname(os.getcwd())+'/webGIS/static/isogram/'+time+'.jpg'
     img.save(img_path)
     image = '/static/isogram/'+time+'.jpg'
-
     return image
 
