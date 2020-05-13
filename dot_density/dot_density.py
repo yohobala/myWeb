@@ -1,7 +1,6 @@
 """Create a dot-density thematic map"""
 
 # https://github.com/GeospatialPython/Learn/raw/master/GIS_CensusTract.zip
-import datetime
 import os
 import random
 import pngcanvas
@@ -110,14 +109,11 @@ class dot_density():
             c.polyline(pixels)
 
         # Save the image
-        # 读取运行代码时的时间，并保留年月日
-        now_time = datetime.datetime.now()
-        time = datetime.datetime.strftime(now_time, '%Y-%m-%d-%H:%M:%S')
-        img_path = os.path.dirname(os.getcwd()) + '/webGIS/static/dot_density/' + time + '.jpg'
+        img_path = os.path.dirname(os.getcwd()) + '/webGIS/static/dot_density/' + file.split('.')[0] + '.jpg'
         img = open(img_path, "wb")
         img.write(c.dump())
         img.close()
-        image = '/static/dot_density/'+time+'.jpg'
+        image = '/static/dot_density/'+file.split('.')[0]+'.jpg'
 
         return  image
 

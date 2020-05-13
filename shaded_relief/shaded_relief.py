@@ -1,7 +1,7 @@
 import os
 from linecache import getline
 import numpy as np
-import datetime
+
 from .dem2img import dem2img
 
 class shaded_relief():
@@ -83,23 +83,18 @@ class shaded_relief():
             f.write(bytes(header, 'UTF-8'))
             np.savetxt(f, aspect, fmt="%4i")
 
-        # 读取运行代码时的时间，并保留年月日
-        now_time = datetime.datetime.now()
-        time = datetime.datetime.strftime(now_time, '%Y-%m-%d-%H:%M:%S')
-
-        filename = time + '_relief' + '.asc'
-
         # 输出晕染文件
-        shadegrid = path + filename
+        shadegrid = path + file.split('.')[0] + '_relief' + '.asc'
 
         # 保存晕染
         with open(shadegrid, "wb") as f:
             f.write(bytes(header, 'UTF-8'))
             np.savetxt(f, shaded, fmt="%4i")
 
+        filename = file.split('.')[0] + '_relief' + '.asc'
 
         dem2img().dem2img(path,filename)
 
-        imagePath = '/static/shaded_relief/'+ time + '_relief' +'.jpg'
+        imagePath = '/static/shaded_relief/'+file.split('.')[0] + '_relief' +'.jpg'
 
         return imagePath
