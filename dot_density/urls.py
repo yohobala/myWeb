@@ -9,4 +9,4 @@ urlpatterns = [
 
 path('', views.index, name='点密度计算'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

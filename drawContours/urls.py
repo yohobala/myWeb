@@ -12,5 +12,5 @@ urlpatterns = [
 #上传文件
 path('', views.index, name='绘制等高线'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

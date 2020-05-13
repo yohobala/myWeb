@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tp&srxzm46zo!_#@5u1%++ho7jcmp=5z(ibulf0ypub-)&cyn*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -124,13 +124,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'data/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, '/static/'),
     os.path.join(BASE_DIR),
 #BASE_DIR是项目根目录
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,'data/static/')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'data').replace('\\', '/')     #设置静态文件路径为主目录下的media文件夹
-MEDIA_URL = '/data/'
+
 

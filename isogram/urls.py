@@ -15,5 +15,5 @@ path('', views.index, name='等值图'),
 #显示结果
 #path('Result/',views.Result, name='结果'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
