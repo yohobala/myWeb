@@ -95,6 +95,6 @@ class shaded_relief():
 
         dem2img().dem2img(path,filename)
 
-        imagePath = '/data/static/shaded_relief/'+file.split('.')[0] + '_relief' +'.jpg'
+        imagePath = '/static/shaded_relief/'+file.split('.')[0] + '_relief' +'.jpg'
 
         return imagePath

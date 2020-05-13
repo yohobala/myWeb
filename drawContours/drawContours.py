@@ -49,7 +49,7 @@ class drawContours():
         for c in contours:
             canvas.polyline(c)
         # Save the image
-        img_path = os.path.dirname(os.getcwd()) + '/webGIS/data/static/drawContours/' + file.split('.')[0]
+        img_path = os.path.dirname(os.getcwd()) + '/webGIS/static/drawContours/' + file.split('.')[0]
         filePath =  img_path+'.png'
         f = open(filePath, "wb")
         f.write(canvas.dump())
@@ -57,7 +57,7 @@ class drawContours():
         with Image.open(filePath) as im:
             im.convert('RGB').save(filePath[:-3] + 'jpg')
 
-        image = '/data/static/drawContours/' + file.split('.')[0] + '.jpg'
+        image = '/static/drawContours/' + file.split('.')[0] + '.jpg'
 
         return image
 

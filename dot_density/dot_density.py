@@ -109,11 +109,11 @@ class dot_density():
             c.polyline(pixels)
 
         # Save the image
-        img_path = os.path.dirname(os.getcwd()) + '/webGIS/data/static/dot_density/' + file.split('.')[0] + '.jpg'
+        img_path = os.path.dirname(os.getcwd()) + '/webGIS/static/dot_density/' + file.split('.')[0] + '.jpg'
         img = open(img_path, "wb")
         img.write(c.dump())
         img.close()
-        image = '/data/static/dot_density/'+file.split('.')[0]+'.jpg'
+        image = '/static/dot_density/'+file.split('.')[0]+'.jpg'
 
         return  image
 

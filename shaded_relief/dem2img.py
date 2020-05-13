@@ -16,9 +16,9 @@ class dem2img():
         source = path+file
 
         # Output image file
-        target = os.path.dirname(os.getcwd()) + '/webGIS/data/static/shaded_relief/' + file.split('.')[0] + '.jpg'
+        target = os.path.dirname(os.getcwd()) + '/webGIS/static/shaded_relief/' + file.split('.')[0] + '.jpg'
 
-        imagePath = '/data/static/shaded_relief/'+file.split('.')[0]+'.jpg'
+        imagePath = '/static/shaded_relief/'+file.split('.')[0]+'.jpg'
 
         # Load the ASCII DEM into a numpy array
         arr = np.loadtxt(source, skiprows=6)

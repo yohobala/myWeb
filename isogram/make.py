@@ -100,9 +100,9 @@ class make():
         draw.polygon(pixels, outline=(255, 255, 255), fill=(R, G, B))
     print(minimum)
     #img_path = path+file.split('.')[0]+'.jpg'
-    img_path = os.path.dirname(os.getcwd())+'/webGIS/data/static/isogram/'+file.split('.')[0]+'.jpg'
+    img_path = os.path.dirname(os.getcwd())+'/webGIS/static/isogram/'+file.split('.')[0]+'.jpg'
     img.save(img_path)
-    image = '/data/static/isogram/'+file.split('.')[0]+'.jpg'
+    image = '/static/isogram/'+file.split('.')[0]+'.jpg'
 
     return image
 
