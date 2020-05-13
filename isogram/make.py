@@ -1,5 +1,7 @@
+import datetime
 import math
 import os
+import time
 
 import shapefile
 
@@ -98,11 +100,14 @@ class make():
             py = int((maxy - y) * yratio)
             pixels.append((px, py))
         draw.polygon(pixels, outline=(255, 255, 255), fill=(R, G, B))
-    print(minimum)
     #img_path = path+file.split('.')[0]+'.jpg'
-    img_path = os.path.dirname(os.getcwd())+'/webGIS/static/isogram/'+file.split('.')[0]+'.jpg'
+    # 读取运行代码时的时间，并保留年月日
+    now_time = datetime.datetime.now()
+    time= datetime.datetime.strftime(now_time, '%Y-%m-%d-%H:%M:%S')
+
+    img_path = os.path.dirname(os.getcwd())+'/webGIS/static/isogram/'+time+'.jpg'
     img.save(img_path)
-    image = '/static/isogram/'+file.split('.')[0]+'.jpg'
+    image = '/static/isogram/'+time+'.jpg'
 
     return image
 
