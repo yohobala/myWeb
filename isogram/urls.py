@@ -10,10 +10,10 @@ app_name = '等值图'
 urlpatterns = [
 
 #上传文件
-path('', views.index, name='文件上传'),
+path('', views.index, name='等值图'),
 
 #显示结果
-path('Result/',views.Result, name='结果'),
+#path('Result/',views.Result, name='结果'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

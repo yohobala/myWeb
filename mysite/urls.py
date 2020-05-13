@@ -22,8 +22,10 @@ from django.conf.urls.static import static
 #就不能打开127.0.0.1:8000/COVID
 urlpatterns = [
     path('',include('homepage.urls')),
+    path('dotDensity/',include('dot_density.urls')),
     path('COVID/',include('COVID.urls')),
-    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('isogram/',include('isogram.urls')),
+    path('shadedrelief/',include('shaded_relief.urls')),
+    path('drawContours/',include('drawContours.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

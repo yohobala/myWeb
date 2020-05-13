@@ -1,4 +1,5 @@
-﻿安道尔,Andorra,AD
+﻿国家,,
+安道尔,Andorra,AD
 阿拉伯联合酋长国,United Arab Emirates,AE
 阿富汗,Afghanistan,AF
 安提瓜和巴布达,Antigua and Barbuda,AG
@@ -26,7 +27,7 @@
 圣赫勒拿,Saint Helena,BL
 百慕大,Bermuda,BM
 文莱,Brunei Darussalam ,BN
-玻利维亚,Bolivia (Plurinational State of),BO
+玻利维亚,Bolivia ,BO
 "博内尔,圣尤斯特歇斯和沙巴","Bonaire, Sint Eustatius and Saba",BQ
 巴西,Brazil,BR
 巴哈马,Bahamas,BS
@@ -37,7 +38,7 @@
 伯利兹,Belize,BZ
 加拿大,Canada,CA
 科科斯（基林）群岛,Cocos (keeling) Islands,CC
-刚果（金）,Dem.Rep.Congo,CD
+刚果（金）,Dem. Rep. Congo,CD
 中非,Central African Rep.,CF
 刚果,Congo,CG
 瑞士,Switzerland,CH
@@ -111,12 +112,12 @@
 柬埔寨,Cambodia,KH
 科摩罗,Comoros,KM
 圣基茨和尼维斯,Saint Kitts and Nevis,KN
-朝鲜,Korea (North),KP
-韩国,Republic of Korea ,KR
+朝鲜,Dem. Rep. Korea ,KP
+韩国,Korea ,KR
 科威特,Kuwait,KW
 开曼群岛,Cayman Islands,KY
 哈萨克斯坦,Kazakhstan,KZ
-老挝,Lao People's Democratic Republic,LA
+老挝,Lao PDR,LA
 黎巴嫩,Lebanon,LB
 圣卢西亚,Saint Lucia,LC
 列支敦士登,Liechtenstein,LI
@@ -180,12 +181,12 @@
 留尼汪岛,Réunion,RE
 罗马尼亚,Romania,RO
 塞尔维亚,Serbia,RS
-俄罗斯联邦,Russian,RU
+俄罗斯联邦,Russia,RU
 卢旺达,Rwanda,RW
 沙特阿拉伯,Saudi Arabia,SA
 所罗门群岛,Solomon Islands,SB
 塞舌尔,Seychelles,SC
-苏丹,S.Sudan,SD
+苏丹,Sudan,SD
 瑞典,Sweden,SE
 新加坡,Singapore,SG
 圣海伦岛,Saint Helen's Island,SH
@@ -196,12 +197,12 @@
 塞内加尔,Senegal,SN
 索马里,Somalia,SO
 苏里南,Suriname,SR
-南苏丹共和国,South Sudan,SS
+南苏丹共和国,S. Sudan,SS
 圣多美和普林西比,Sao Tome and Principe,ST
 圣多美和普林西比,The Democratic Republic of Sao Tome and Principe,ST
 萨尔瓦多,El Salvador,SV
 圣马丁岛,Sint Maarten,SX
-叙利亚,Syrian Arab Republic,SY
+叙利亚,Syria,SY
 斯威士兰,Eswatini,SZ
 特克斯和凯科斯群岛,Turks and Caicos Islands,TC
 乍得,Chad,TD
@@ -217,7 +218,7 @@
 土耳其,Turkey,TR
 特立尼达和多巴哥,Trinidad and Tobago,TT
 图瓦卢,Tuvalu,TV
-坦桑尼亚,United Republic of Tanzania,TZ
+坦桑尼亚,Tanzania,TZ
 乌克兰,Ukraine,UA
 乌干达,Uganda,UG
 英国,The United Kingdom ,GB
@@ -226,10 +227,10 @@
 乌兹别克斯坦,Uzbekistan,UZ
 梵蒂冈,Holy See,VA
 圣文森特和格林纳丁斯,Saint Vincent and the Grenadines,VC
-委内瑞拉,Venezuela (Bolivarian Republic of),VE
+委内瑞拉,Venezuela,VE
 英属维尔京群岛,British Virgin Islands,VG
 美属维尔京群岛,United States Virgin Islands,VI
-越南,Viet Nam,VN
+越南,Vietnam,VN
 瓦努阿图,Vanuatu,VU
 瓦利斯群岛和富图纳群岛,Wallis and Futuna,WF
 萨摩亚,Samoa,WS
@@ -242,5 +243,5 @@
 津巴布韦,Zimbabwe,ZW
 基里巴斯,Kiribati,KIR
 密克罗尼西亚,Micronesia,FSM
-西撒哈拉,Western Sahara,EH
+西撒哈拉,W. Sahara,EH
 钻石公主号,Diamond Princess,DP

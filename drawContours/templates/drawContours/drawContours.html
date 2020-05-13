@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="form1" enctype="multipart/form-data" target="ifm1">
+        <iframe id="ifm1" name="ifm1" style="display: none;"></iframe>
+        <input type="file" name="file1" onchange="changeUpalod();" />
+        <input type="text" name="interval" placeholder="日光方位" />
+        <input type="text" name="height" placeholder="日光角度" />
+        <input type="text" name="iwidth1" placeholder="高程放大分辨率" />
+        <input type="text" name="iheight1" placeholder="日光方位" />
+        <input type="text" name="color1" placeholder="日光角度" />
+        <input type="submit" id="filebtn" name="filebtn" value="上传文件"/>
+
+    </form>
+    <form id="form2" enctype="multipart/form-data" target="ifm1">
+        <iframe id="ifm2" name="ifm2" style="display: none;"></iframe>
+        <input type="file" name="file2" onchange="changeUpalod();" />
+        <input type="text" name="iwidth2" placeholder="日光方位" />
+        <input type="text" name="iheight2" placeholder="日光角度" />
+        <input type="text" name="color2" placeholder="高程放大分辨率" />
+        <input type="submit" id="databtn" name="databtn" value="提交"/>
+    </form>
+    <img src=''  id="img">
+<script>
+
+ $(document).ready(function(){
+    $("#filebtn").click(function () {
+
+        //创建对象
+        var formdata = new FormData();
+        //这里FormData是一个jquery对象，用来绑定values对象，也可以用来上传二进制文件，有了他就可以不用form表单来上传文件了
+
+        var file_obj = $('[name=file1]')[0].files[0];
+        var interval = $('[name=interval]').val();
+        var height = $('[name=height]').val();
+        var iwidth = $('[name=iwidth1]').val();
+        var iheight = $('[name=iheight1]').val();
+        var color = $('[name=color1]').val();
+        formdata.append('file_obj',file_obj);
+        formdata.append('interval',interval);
+        formdata.append('height',height);
+        formdata.append('iwidth',iwidth);
+        formdata.append('iheight',iheight);
+        formdata.append('color',color);
+        formdata.append('flow','1');
+
+    $.ajax({
+        url: '',
+        type: 'post',
+        data: formdata,
+        //这两个要必须写
+        processData:false,  //不预处理数据  因为FormData 已经做了
+        contentType:false,  //我不指定编码了 因为FormData 已经做了
+        success: function (data) {
+            $("#img").attr("src", data);
+            $("#img").show();
+            }
+        })
+    })
+ })
+ $(document).ready(function(){
+    $("#databtn").click(function () {
+
+        //创建对象
+        var formdata = new FormData();
+        //这里FormData是一个jquery对象，用来绑定values对象，也可以用来上传二进制文件，有了他就可以不用form表单来上传文件了
+
+        var file_obj = $('[name=file2]')[0].files[0];
+        var iwidth = $('[name=iwidth2]').val();
+        var iheight = $('[name=iheight2]').val();
+        var color = $('[name=color2]').val();
+        formdata.append('file_obj',file_obj);
+        formdata.append('iwidth',iwidth);
+        formdata.append('iheight',iheight);
+        formdata.append('color',color);
+        formdata.append('flow','2');
+
+    $.ajax({
+        url: '',
+        type: 'post',
+        data: formdata,
+        //这两个要必须写
+        processData:false,  //不预处理数据  因为FormData 已经做了
+        contentType:false,  //我不指定编码了 因为FormData 已经做了
+        success: function (data) {
+            $("#img").attr("src", data);
+            $("#img").show();
+            }
+        })
+    })
+ })
+</script>
+</body>
+</html>

@@ -97,7 +97,7 @@ def countryName(name,countryData):
     for line in countryData:
         if name in line[2]:
             ChineseName = line[0]
-            EnglishName = line[1]
+            EnglishName = line[1].rstrip()
             print(ChineseName, EnglishName,name,line[2])
             break
     return ChineseName,EnglishName
@@ -119,7 +119,7 @@ def classifyByName(file,countryData):
     now_time = datetime.datetime.now()
     timeStr = datetime.datetime.strftime(now_time,'%Y-%m-%d 08:00:00')
     timeStamp = int(time.mktime(time.strptime(timeStr,'%Y-%m-%d %H:%M:%S'))*1000)
-    #定一个字典，为了之后输出文件用
+    #定义一个字典，为了之后输出文件用
     JF = {"dimensions": [
          {"name": "TimeStamp", "type": "STRING"},
          {"name": "Chinese Name", "type": "STRING"},

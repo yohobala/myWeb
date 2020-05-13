@@ -2,10 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>主页</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}">
 </head>
 <body>
-        <li><a href="/COVID/">全球疫情</a></li>
-        <li><a href="/isogram/">等值图</a></li>
+<div class="total">
+    <div class="covid">
+        <a href="/COVID/" class="covid_title">
+            <span class="covid_span">
+                <font style="vertical-align: inherit;" >COVID-19疫情图</font>
+            </span>
+        </a>
+    </div>
+
+    <div class="webgis_list">
+        <div class="webgis_title_border">
+            <div class="webgis_title">
+                 <span>GIS功能</span>
+            </div>
+        </div>
+        <div class="funciton_list">
+            <a href="/isogram/" class="function_detail">
+                <span class="text_tag">
+                    <font style="vertical-align: inherit;" >等值图</font>
+                </span>
+            </a>
+            <a href="/dotDensity/" class="function_detail">
+                <span class="text_tag">
+                    <font style="vertical-align: inherit;" >点密度图</font>
+                </span>
+            </a>
+            <a href="/shadedrelief/" class="function_detail">
+                <span class="text_tag">
+                    <font style="vertical-align: inherit;" >地形阴影（晕染地图）</font>
+                </span>
+            </a>
+            <a href="/drawContours/" class="function_detail">
+                <span class="text_tag">
+                    <font style="vertical-align: inherit;" >等高线</font>
+                </span>
+            </a>
+                        <a href="/drawContours/" class="function_detail">
+                <span class="text_tag">
+                    <font style="vertical-align: inherit;" >等高线</font>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

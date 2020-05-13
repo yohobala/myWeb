@@ -2,7 +2,7 @@
 import os
 import django
 
-from COVID import Country
+from COVID import Country_chart
 
 import csv
 import time

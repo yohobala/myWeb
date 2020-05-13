@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import channels
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,9 +33,11 @@ ALLOWED_HOSTS = []
 #包含的所有app,CovidConfig类写在COVID/apps.py中
 INSTALLED_APPS = [
     'homepage',
-    'COVID.apps.CovidConfig',
-    'polls.apps.PollsConfig',
-    'isogram.apps.GisConfig',
+    'dot_density',
+    'COVID',
+    'isogram',
+    'shaded_relief',
+    'drawContours',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
