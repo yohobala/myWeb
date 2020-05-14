@@ -9,9 +9,7 @@
     <form id="form1" enctype="multipart/form-data" target="ifm1">
         <iframe id="ifm1" name="ifm1" style="display: none;"></iframe>
         <input type="file" name="file" onchange="changeUpalod();" />
-        <input type="text" name="width" placeholder="输出图像的宽" />
-        <input type="text" name="height" placeholder="输出图像的高" />
-        <input type="text" name="color" placeholder="颜色，十六进制如白色#FFFFFF" />
+        <input type="text" name="cell" placeholder="格网尺寸" />
         <input type="submit" id="databtn" name="databtn" value="提交"/>
     </form>
     <img src=''  id="img">
@@ -25,13 +23,9 @@
         //这里FormData是一个jquery对象，用来绑定values对象，也可以用来上传二进制文件，有了他就可以不用form表单来上传文件了
 
         var file_obj = $('[name=file]')[0].files[0];
-        var width = $('[name=width]').val();
-        var height = $('[name=height]').val();
-        var color = $('[name=color]').val();
+        var cell = $('[name=cell]').val();
         formdata.append('file_obj',file_obj);
-        formdata.append('width',width);
-        formdata.append('height',height);
-        formdata.append('color',color);
+        formdata.append('cell',cell);
 
     $.ajax({
         url: '',

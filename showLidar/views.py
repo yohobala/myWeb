@@ -13,10 +13,7 @@ def index(request):
     global path
     if request.method == 'POST':
         f = request.FILES.get('file_obj')
-        width = int(request.POST.get('width'))
-        height = int(request.POST.get('height'))
-        color = request.POST.get('color')
-        print(f.name)
+        cell = int(request.POST.get('cell'))
 
         filename = f.name.split('.')[0]
 
@@ -47,7 +44,7 @@ def index(request):
             for file in l:
                 if file.split('.')[1] == 'las':
                     img = showLidar()
-                    imgPath = img.showShp(path, file, width, height, color)
+                    imgPath = img.showShp(path, file, cell)
 
         return HttpResponse(imgPath)
 

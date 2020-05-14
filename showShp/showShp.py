@@ -7,8 +7,6 @@ from PIL import Image, ImageDraw
 class showShp():
     def showShp(self,path,file,iwidth,iheight,color):
         shp = shapefile.Reader(path + file)
-        print(path+file)
-
         # 初始化 Image
         img = Image.new("RGB", (iwidth, iheight), (255, 255, 255))
         # 填充多边形

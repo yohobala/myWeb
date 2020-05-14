@@ -16,12 +16,10 @@ import numpy as np
 from .dem2img import dem2img
 
 class showLidar():
-    def showLidar(self,path,file):
+    def showLidar(self,path,file,cell):
         # Source LAS file
         source = path+file
 
-        # Grid cell size (data units)
-        cell = 1
 
         # No data value for output DEM
         NODATA = 0
@@ -50,7 +48,6 @@ class showLidar():
 
         # Track how many elevation
         # values we aggregate
-        print(type(rows))
         count = np.zeros((rows, cols)).astype(np.float32)
         # Aggregate elevation values
         zsum = np.zeros((rows, cols)).astype(np.float32)
