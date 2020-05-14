@@ -29,5 +29,6 @@ urlpatterns = [
     path('isogram/',include('isogram.urls')),
     path('shadedrelief/',include('shaded_relief.urls')),
     path('drawContours/',include('drawContours.urls')),
+    path('showShp/',include('showShp.urls')),
     url(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT }, name='static'),
 ]

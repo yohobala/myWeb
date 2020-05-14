@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'isogram',
     'shaded_relief',
     'drawContours',
+    'showShp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

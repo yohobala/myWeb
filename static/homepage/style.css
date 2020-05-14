@@ -85,20 +85,25 @@
            }
         .function_detail:nth-of-type(1){
            background-color: rgba(171, 60, 22, 0.85);
-           background-image: url("images/isogram.jpg");
+           background-image: url("images/showShp.jpg");
            background-size: 100% 100%
         }
         .function_detail:nth-of-type(2){
+           background-color: rgba(171, 60, 22, 0.85);
+           background-image: url("images/isogram.jpg");
+           background-size: 100% 100%
+        }
+        .function_detail:nth-of-type(3){
            background-color: rgba(0, 94, 149, 0.85);
            background-image: url("images/dot_density.jpg");
            background-size: 100% 100%
         }
-        .function_detail:nth-of-type(3){
+        .function_detail:nth-of-type(4){
            background-color: rgba(51, 128, 51, 0.85);
            background-image: url("images/shape_relief.jpg");
            background-size: 100% 100%
         }
-        .function_detail:nth-of-type(4){
+        .function_detail:nth-of-type(5){
            background-color: rgba(	186,85,211, 0.85);
            background-image: url("images/contours.jpg");
            background-size: 100% 100%

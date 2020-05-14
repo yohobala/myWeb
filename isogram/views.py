@@ -32,7 +32,7 @@ def index(request):
                 zip_file.extract(file, path)  # 循环解压文件到指定目录
 
             l = os.listdir(path)
-            existFile = 0 ;
+            existFile = 0
             for file in l:
                 if file[-3:] == 'shp':
                     inShp = shapefile.Reader(path + file.split('.')[0])
@@ -41,7 +41,7 @@ def index(request):
                     for i in filelist:
                         message = str(i[0])
                         data = data + message + '|'
-                    existFile = 1 ;
+                    existFile = 1
             if existFile !=1 :
                 path = path + filename + '/'
                 l = os.listdir(path )
