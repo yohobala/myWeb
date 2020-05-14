@@ -1,6 +1,6 @@
-import datetime
 import math
 import os
+import urllib
 
 import shapefile
 
@@ -102,13 +102,9 @@ class make():
     print(minimum)
     #img_path = path+file.split('.')[0]+'.jpg'
 
-    #读取运行代码时的时间，并保留年月日，时间变成8：00：00，然后扩大1000倍，因为json文件里的时间戳到毫秒，并变成字符串格式
-    now_time = datetime.datetime.now()
-    timeStr = datetime.datetime.strftime(now_time,'%Y-%m-%d 08:00:00')
-
-    img_path = os.path.dirname(os.getcwd())+'/webGIS/static/isogram/'+timeStr+'.jpg'
+    img_path = os.path.dirname(os.getcwd())+'/webGIS/static/isogram/'+ urllib.parse.quote(file.split('.')[0])+'.jpg'
     img.save(img_path)
-    image = '/static/isogram/'+timeStr+'.jpg'
+    image = '/static/isogram/'+urllib.parse.quote(file.split('.')[0])+'.jpg'
 
     return image
 
