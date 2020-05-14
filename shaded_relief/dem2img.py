@@ -1,6 +1,6 @@
 """Convert an ASCII DEM to an image."""
 import os
-
+from osgeo import gdal_array as gd
 import numpy as np
 
 try:
@@ -10,29 +10,60 @@ except:
     from PIL import Image, ImageOps
 
 class dem2img():
-    def dem2img(self,path,file):
+    def dem2img(self,path,demFile,relieFfile):
         # Source LIDAR DEM file
-
-        source = path + file
+        dem = path + demFile
+        relief = path + relieFfile
 
         # Output image file
-        target = os.path.dirname(os.getcwd()) + '/webGIS/static/shaded_relief/' + file.split('.')[0] + '.jpg'
-        print(target)
-        imagePath = '/static/shaded_relief/'+file.split('.')[0]+'.jpg'
-        print(imagePath)
-        # Load the ASCII DEM into a numpy array
-        arr = np.loadtxt(source, skiprows=6)
-        print(arr)
-        # Convert array to numpy image
-        im = Image.fromarray(arr).convert('RGB')
+        target = os.path.dirname(os.getcwd()) + '/webGIS/static/shaded_relief/' + demFile.split('.')[0] + '.jpg'
 
-        # Enhance the image:
-        # equalize and increase contrast
-        im = ImageOps.equalize(im)
-        im = ImageOps.autocontrast(im)
+        imagePath = '/static/shaded_relief/'+demFile.split('.')[0]+'.jpg'
 
-        # Save the image
-        im.save(target)
+        # Load the relief as the background image
+        bg = gd.numpy.loadtxt(relief, skiprows=6)
+
+        # Load the DEM into a numpy array as the foreground image
+        fg = gd.numpy.loadtxt(dem, skiprows=6)[:-2, :-2]
+
+        # Create a blank 3-band image to colorize the DEM
+        rgb = gd.numpy.zeros((3, len(fg), len(fg[0])), gd.numpy.uint8)
+
+        # Class list with DEM upper elevation range values.
+        classes = [356, 649, 942, 1235, 1528,
+                   1821, 2114, 2300, 2700]
+
+        # Color look-up table (lut)
+        # The lut must match the number of classes.
+        # Specified as R, G, B tuples
+        lut = [[63, 159, 152], [96, 235, 155], [100, 246, 174],
+               [248, 251, 155], [246, 190, 39], [242, 155, 39],
+               [165, 84, 26], [236, 119, 83], [203, 203, 203]]
+
+        # Starting elevation value of the first class
+        start = 1
+
+        # Process all classes.
+        for i in range(len(classes)):
+            mask = gd.numpy.logical_and(start <= fg,
+                                        fg <= classes[i])
+            for j in range(len(lut[i])):
+                rgb[j] = gd.numpy.choose(mask, (rgb[j], lut[i][j]))
+            start = classes[i] + 1
+
+        # Convert the shaded relief to a PIL image
+        im1 = Image.fromarray(bg).convert('RGB')
+
+        # Convert the colorized DEM to a PIL image.
+        # We must transpose it from the Numpy row, col order
+        # to the PIL col, row order (width, height).
+        im2 = Image.fromarray(rgb.transpose(1, 2, 0)).convert('RGB')
+
+        # Blend the two images with a 40% alpha
+        hillshade = Image.blend(im1, im2, .4)
+
+        # Save the hillshade
+        hillshade.save(target)
 
         return imagePath
 

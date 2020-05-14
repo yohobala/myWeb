@@ -92,10 +92,10 @@ class shaded_relief():
             f.write(bytes(header, 'UTF-8'))
             np.savetxt(f, shaded, fmt="%4i")
 
-        filename = file.split('.')[0] + '_relief' + '.asc'
+        reliefFile= file.split('.')[0] + '_relief' + '.asc'
 
-        dem2img().dem2img(path,filename)
+        imagePath = dem2img().dem2img(path,file,reliefFile)
 
-        imagePath = '/static/shaded_relief/'+file.split('.')[0] + '_relief' +'.jpg'
+
 
         return imagePath
