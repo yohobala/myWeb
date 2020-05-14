@@ -10,7 +10,7 @@ except:
     from PIL import Image, ImageOps
 
 class dem2img():
-    def dem2img(self,path,demFile,relieFfile):
+    def dem2img(self, path, demFile, relieFfile, divide_class, hight, color):
         # Source LIDAR DEM file
         dem = path + demFile
         relief = path + relieFfile
@@ -30,15 +30,24 @@ class dem2img():
         rgb = gd.numpy.zeros((3, len(fg), len(fg[0])), gd.numpy.uint8)
 
         # Class list with DEM upper elevation range values.
-        classes = [356, 649, 942, 1235, 1528,
-                   1821, 2114, 2300, 2700]
+        classes = []
+        hight = hight.split(',')
+        for i in range(len(hight)):
+            classes.append(int(hight[i]))
+
 
         # Color look-up table (lut)
         # The lut must match the number of classes.
         # Specified as R, G, B tuples
-        lut = [[63, 159, 152], [96, 235, 155], [100, 246, 174],
-               [248, 251, 155], [246, 190, 39], [242, 155, 39],
-               [165, 84, 26], [236, 119, 83], [203, 203, 203]]
+        lut = []
+        color = color.split(',')
+        for i in range(len(color)):
+            color_rgb = []
+            r = int(color[i][1:3], 16)
+            g = int(color[i][3:5], 16)
+            b = int(color[i][5:7], 16)
+            color_rgb = [r, g, b]
+            lut.append(color_rgb)
 
         # Starting elevation value of the first class
         start = 1

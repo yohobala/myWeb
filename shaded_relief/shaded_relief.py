@@ -5,7 +5,7 @@ import numpy as np
 from .dem2img import dem2img
 
 class shaded_relief():
-    def drawing(self, path, file, azimuth, altitude, z, scale):
+    def drawing(self, path, file, azimuth, altitude, z, scale,divide_class, hight, color):
         # ASCII数字高程模型文件
         source = path + file
 
@@ -94,7 +94,7 @@ class shaded_relief():
 
         reliefFile= file.split('.')[0] + '_relief' + '.asc'
 
-        imagePath = dem2img().dem2img(path,file,reliefFile)
+        imagePath = dem2img().dem2img(path,file,reliefFile,divide_class, hight, color)
 
 
 
