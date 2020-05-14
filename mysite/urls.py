@@ -30,5 +30,6 @@ urlpatterns = [
     path('shadedrelief/',include('shaded_relief.urls')),
     path('drawContours/',include('drawContours.urls')),
     path('showShp/',include('showShp.urls')),
+    path('showLidar/',include('showLidar.urls')),
     url(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT }, name='static'),
 ]

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'shaded_relief',
     'drawContours',
     'showShp',
+    'showLidar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

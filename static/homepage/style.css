@@ -108,6 +108,11 @@
            background-image: url("images/contours.jpg");
            background-size: 100% 100%
         }
+        .function_detail:nth-of-type(6){
+           background-color: rgba(	186,85,211, 0.85);
+           background-image: url("images/showLidar.jpg");
+           background-size: 100% 100%
+        }
         .function_detail:hover{
            background-color: rgba(169,169,169, 0.85);
            background-size:110% 110%;
