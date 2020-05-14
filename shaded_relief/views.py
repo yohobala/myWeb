@@ -11,6 +11,7 @@ from .shaded_relief import shaded_relief
 
 def index(request):
     global path
+    global name
     if request.method == 'POST':
         flow = int(request.POST.get('flow'))
         if flow == 1:
@@ -33,7 +34,7 @@ def index(request):
                 zip_file.extract(file, path)  # 循环解压文件到指定目录
 
             l = os.listdir(path)
-
+            print(l)
             minimum = 0  # 表示正无穷大， 负无穷大是float('-inf') 或者-float('inf')
             maximum = -float('inf')
 
@@ -41,6 +42,7 @@ def index(request):
             existFile = 0
             for file in l:
                 if file[-3:] == 'asc':
+                    name = file
                     dem = path + file
                     fg = gd.numpy.loadtxt(dem, skiprows=6)[:-2, :-2]
                     for x in range(len(fg)):
@@ -58,6 +60,7 @@ def index(request):
                 l = os.listdir(path)
                 for file in l:
                     if file[-3:] == 'asc':
+                        name = file
                         dem = path + file
                         fg = gd.numpy.loadtxt(dem, skiprows=6)[:-2, :-2]
                         for x in range(len(fg)):
@@ -81,11 +84,10 @@ def index(request):
             print(hight)
             print(color)
 
-            l = os.listdir(path)
-            for i in l:
-                if i.split('.')[1] == 'asc':
-                    shaded = shaded_relief()
-                    imgPath = shaded.drawing(path, i, azimuth, altitude, z, scale, divide_class, hight, color)
+
+            shaded = shaded_relief()
+            print(name)
+            imgPath = shaded.drawing(path, name, azimuth, altitude, z, scale, divide_class, hight, color)
 
             # with open(os.path.join(img_path), 'wb+') as f:  # 图片上传
             #     for item in fafafa.chunks():

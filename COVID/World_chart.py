@@ -401,8 +401,8 @@ if __name__ == "__main__":
 
     tab = Tab()
     tab.add(timeline_1,'累计确诊')
-    tab.add(timeline_2, '新增确诊')
-    tab.add(timeline_3, '累计死亡')
-    tab.add(timeline_4, '新增死亡')
+    # tab.add(timeline_2, '新增确诊')
+    # tab.add(timeline_3, '累计死亡')
+    # tab.add(timeline_4, '新增死亡')
 
     tab.render("templates/COVID/"+'world'+'.html')

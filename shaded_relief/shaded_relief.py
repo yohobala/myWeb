@@ -85,14 +85,14 @@ class shaded_relief():
 
         # 输出晕染文件
 
-        shadegrid = path + file.split('.')[0] + '_relief' + '.asc'
+        shadegrid = path + 'relief_' + file.split('.')[0] + '.asc'
 
         # 保存晕染
         with open(shadegrid, "wb") as f:
             f.write(bytes(header, 'UTF-8'))
             np.savetxt(f, shaded, fmt="%4i")
 
-        reliefFile= file.split('.')[0] + '_relief' + '.asc'
+        reliefFile= 'relief_' + file.split('.')[0] + '.asc'
 
         imagePath = dem2img().dem2img(path,file,reliefFile,divide_class, hight, color)
 
