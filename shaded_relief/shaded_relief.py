@@ -67,23 +67,24 @@ class shaded_relief():
             aspect[pane == nd] = NODATA
             shaded[pane == nd] = NODATA
 
-        # 坡度文件
-        slopegrid = path + file.split('.')[0] + '_slope' + '.asc'
-
-        # 保存坡度
-        with open(slopegrid, "wb") as f:
-            f.write(bytes(header, 'UTF-8'))
-            np.savetxt(f, slope, fmt="%4i")
-
-        # 坡向文件
-        aspectgrid = path + file.split('.')[0] + '_aspect' + '.asc'
-
-        # 保存坡向
-        with open(aspectgrid, "wb") as f:
-            f.write(bytes(header, 'UTF-8'))
-            np.savetxt(f, aspect, fmt="%4i")
+        # # 坡度文件
+        # slopegrid = path + file.split('.')[0] + '_slope' + '.asc'
+        #
+        # # 保存坡度
+        # with open(slopegrid, "wb") as f:
+        #     f.write(bytes(header, 'UTF-8'))
+        #     np.savetxt(f, slope, fmt="%4i")
+        #
+        # # 坡向文件
+        # aspectgrid = path + file.split('.')[0] + '_aspect' + '.asc'
+        #
+        # # 保存坡向
+        # with open(aspectgrid, "wb") as f:
+        #     f.write(bytes(header, 'UTF-8'))
+        #     np.savetxt(f, aspect, fmt="%4i")
 
         # 输出晕染文件
+
         shadegrid = path + file.split('.')[0] + '_relief' + '.asc'
 
         # 保存晕染
