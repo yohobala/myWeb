@@ -36,7 +36,7 @@ def index(request):
         for file in l:
             if file[-3:] == 'las':
                 img= showLidar()
-                imgPath = img.showLidar(path, file)
+                imgPath = img.showLidar(path, file, cell)
                 existFile = 1
         if existFile != 1:
             path = path + filename + '/'
@@ -44,7 +44,7 @@ def index(request):
             for file in l:
                 if file.split('.')[1] == 'las':
                     img = showLidar()
-                    imgPath = img.showShp(path, file, cell)
+                    imgPath = img.showLidar(path, file, cell)
 
         return HttpResponse(imgPath)
 
