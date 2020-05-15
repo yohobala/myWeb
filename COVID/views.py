@@ -1,12 +1,4 @@
-import json
-from random import randrange
 
-from django.http import HttpResponse
-from rest_framework.views import APIView
-
-from pyecharts.charts import Bar, Geo
-from pyecharts import options as opts
-from django.http import Http404, HttpResponse
 from django.shortcuts import render,get_object_or_404
 
 
