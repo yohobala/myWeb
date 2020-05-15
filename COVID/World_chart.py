@@ -196,6 +196,10 @@ def get_day_chart(day:str,data:list,minNum:int,maxNum:int,total_num:list):
                     font_size=25, color="rgba(255,255,255, 0.9)"
                 ),
             ),
+            legend_opts=opts.LegendOpts(
+                is_show = False,
+
+            ),
         )
     )
 
@@ -312,7 +316,10 @@ if __name__ == "__main__":
 
     #累计确诊
     timeline_1 = Timeline(
-        init_opts=opts.InitOpts(width="1400px", height="1000px", theme=ThemeType.DARK)
+        init_opts=opts.InitOpts(width="calc(100vw)",
+                                height="1000px",
+                                theme=ThemeType.DARK,
+                                page_title='全球疫情累计确诊'),
     )
     for y in time_list:
         g = get_day_chart(day=y,data=data[0],minNum=0,maxNum=data[1],total_num=data[2])
@@ -329,11 +336,15 @@ if __name__ == "__main__":
         pos_bottom="20",
         width="60",
         label_opts=opts.LabelOpts(is_show=True, color="#fff"),
+        itemstyle_opts=opts.ItemStyleOpts(opacity=0.5),
     )
 
     #新增确诊
     timeline_2 = Timeline(
-        init_opts=opts.InitOpts(width="1400px", height="1000px", theme=ThemeType.DARK)
+        init_opts=opts.InitOpts(width="1400px",
+                                height="1000px",
+                                theme=ThemeType.DARK,
+                                page_title='全球新增确诊')
     )
 
     for y in time_list:
@@ -356,7 +367,10 @@ if __name__ == "__main__":
     # 累计死亡
 
     timeline_3 = Timeline(
-        init_opts=opts.InitOpts(width="1400px", height="1000px", theme=ThemeType.DARK)
+        init_opts=opts.InitOpts(width="1400px",
+                                height="1000px",
+                                theme=ThemeType.DARK,
+                                page_title='全球累计死亡')
     )
 
     for y in time_list:
@@ -379,7 +393,10 @@ if __name__ == "__main__":
     # 新增死亡
 
     timeline_4 = Timeline(
-        init_opts=opts.InitOpts(width="1400px", height="1000px", theme=ThemeType.DARK)
+        init_opts=opts.InitOpts(width="1400px",
+                                height="1000px",
+                                theme=ThemeType.DARK,
+                                page_title='全球新增死亡')
     )
 
     for y in time_list:
@@ -399,10 +416,7 @@ if __name__ == "__main__":
         label_opts=opts.LabelOpts(is_show=True, color="#fff"),
     )
 
-    tab = Tab()
-    tab.add(timeline_1,'累计确诊')
-    # tab.add(timeline_2, '新增确诊')
-    # tab.add(timeline_3, '累计死亡')
-    # tab.add(timeline_4, '新增死亡')
-
-    tab.render("templates/COVID/"+'world'+'.html')
+    timeline_1.render("templates/COVID/"+'world_TC'+'.html')
+    timeline_2.render("templates/COVID/"+'world_NC'+'.html')
+    timeline_3.render("templates/COVID/" + 'world_TD' + '.html')
+    timeline_4.render("templates/COVID/" + 'world_ND' + '.html')
