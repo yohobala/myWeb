@@ -49,12 +49,10 @@
         type: 'post',
         data: formdata,
         //这两个要必须写
-        processData:false,  //不预处理数据  因为FormData 已经做了
-        contentType:false,  //我不指定编码了 因为FormData 已经做了
+        processData:false,
+        contentType:false,
         success: function (data) {
-                //把数据库的数据拼接，拿出来，然后拆分，最后组成字符语句，放入html()输出
                 var str="<tr><td>字段名</td></tr>";
-　　　　　　　　　　//不要把表头放入table 表格，因为后面的$("#xianshi").html() 会覆盖掉
                 var mylist = []
                 data = data.split('|')
                 for(var i=0;i<data.length;i++)

@@ -22,9 +22,7 @@ class drawContours():
         xratio = iwidth / xdist
         yratio = iheight / ydist
         contours = []
-        # Loop through all shapes
         for shape in r.shapes():
-            # Loop through all parts
             for i in range(len(shape.parts)):
                 pixels = []
                 pt = None
@@ -37,7 +35,7 @@ class drawContours():
                     py = int((r.bbox[3] - y) * yratio)
                     pixels.append([px, py])
                 contours.append(pixels)
-        # Set up the output canvas
+
         canvas = pngcanvas.PNGCanvas(iwidth, iheight)
         # PNGCanvas accepts rgba byte arrays for colors
         r = int(tone[1:3], 16)

@@ -72,14 +72,10 @@ class dot_density():
                 first_index = i - 1
 
 
-        # Calculate the density and plot points
         for sr in inShp.shapeRecords():
             first = sr.record[first_index]
-            # Density ratio - 1 dot per 100 people
             density = first / 100
             found = 0
-            # Randomly distribute points until we
-            # have the correct density
             while found < density:
                 minx, miny, maxx, maxy = sr.shape.bbox
                 x = random.uniform(minx, maxx)

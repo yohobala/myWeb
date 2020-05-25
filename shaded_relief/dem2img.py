@@ -49,10 +49,12 @@ class dem2img():
             color_rgb = [r, g, b]
             lut.append(color_rgb)
 
-        # Starting elevation value of the first class
+
         start = 1
 
-        # Process all classes.
+# 首先用logical_and对文件遍历，判断fg中每个量是否是在start和classes[i]之间，返回False 和True
+# 然后用choose进行选择 ，rgb是一个都是0的列表,如果变量是False,选择rgb中相应位置的数也就是0,如果是True，选择lut
+# 三次遍历后组成一个rbg的三维列表，生成每个点的颜色
         for i in range(len(classes)):
             mask = gd.numpy.logical_and(start <= fg,
                                         fg <= classes[i])
@@ -60,7 +62,6 @@ class dem2img():
                 rgb[j] = gd.numpy.choose(mask, (rgb[j], lut[i][j]))
             start = classes[i] + 1
 
-        # Convert the shaded relief to a PIL image
         im1 = Image.fromarray(bg).convert('RGB')
 
         # Convert the colorized DEM to a PIL image.

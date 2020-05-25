@@ -188,7 +188,7 @@ def get_day_chart(day:str,data:list,minNum:int,maxNum:int,total_num:list):
             .set_global_opts(
             visualmap_opts=opts.VisualMapOpts(max_=200),
             title_opts=opts.TitleOpts(
-                title="" + str(day) + "全球疫情情况（单位：亿） 数据来源：WHO",
+                title="" + str(day) + "全球疫情情况 数据来源：WHO",
                 subtitle="",
                 pos_left="center",
                 pos_top="10",
@@ -215,7 +215,7 @@ def get_day_chart(day:str,data:list,minNum:int,maxNum:int,total_num:list):
             .set_series_opts(label_opts=opts.LabelOpts(is_show=False))
             .set_global_opts(
             title_opts=opts.TitleOpts(
-                title="全球总人数（单位：人）", pos_left="72%", pos_top="5%"
+                title="全球总人数", pos_left="72%", pos_top="5%"
             )
         )
     )

@@ -57,9 +57,9 @@ class make():
             elif rule == 'division':
                 num = sr.record[first_index] / sr.record[second_index]
         if num < minimum:
-            minimum = sr.record[first_index]
+            minimum = num
         if num > maximum:
-            maximum = sr.record[first_index]
+            maximum = num
     #划分等级
     weight = maximum/minimum/divide_class
     # 绘制多边形
@@ -82,9 +82,9 @@ class make():
         r2 = int(tone2[1:3], 16)
         g2 = int(tone2[3:5], 16)
         b2 = int(tone2[5:7], 16)
-        R = int(r1 - (r1-r2)*level/divide_class)
-        G = int(g1 - (g1-g2)*level/divide_class)
-        B = int(b1 - (b1-b2)*level/divide_class)
+        R = int(r1 + (r2-r1)*level/divide_class)
+        G = int(g1 + (g2-g1)*level/divide_class)
+        B = int(b1 + (b2-b1)*level/divide_class)
 
         pixels = []
         for x, y in sr.shape.points:

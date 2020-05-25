@@ -27,43 +27,22 @@ class showLidar():
         # Open LIDAR LAS file
         las = File(source, mode="r")
 
-        # xyz min and max
+
         min = las.header.min
         max = las.header.max
-
-        # Get the x axis distance
         xdist = max[0] - min[0]
-
-        # Get the y axis distance
         ydist = max[1] - min[1]
-
-        # Number of columns for our grid
         cols = int(xdist / cell)
-
-        # Number of rows for our grid
         rows = int(ydist / cell)
-
         cols += 1
         rows += 1
-
-        # Track how many elevation
-        # values we aggregate
         count = np.zeros((rows, cols)).astype(np.float32)
-        # Aggregate elevation values
         zsum = np.zeros((rows, cols)).astype(np.float32)
-
-        # Y resolution is negative
         ycell = -1 * cell
-
-        # Project x, y values to grid
         projx = (las.x - min[0]) / cell
         projy = (las.y - min[1]) / ycell
-        # Cast to integers and clip for use as index
         ix = projx.astype(np.int32)
         iy = projy.astype(np.int32)
-
-        # Loop through x, y, z arrays, add to grid shape,
-        # and aggregate values for averaging
         for x, y, z in np.nditer([ix, iy, las.z]):
             count[y, x] += 1
             zsum[y, x] += z
