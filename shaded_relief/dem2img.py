@@ -16,9 +16,9 @@ class dem2img():
         relief = path + relieFfile
 
         # Output image file
-        target = os.path.dirname(os.getcwd()) + '/webGIS/static/shaded_relief/' + demFile.split('.')[0] + '.jpg'
+        target = os.path.dirname(os.getcwd()) + '/webGIS/static/shaded_relief/images/' + demFile.split('.')[0] + '.jpg'
 
-        imagePath = '/static/shaded_relief/'+demFile.split('.')[0]+'.jpg'
+        imagePath = '/static/shaded_relief/images/'+demFile.split('.')[0]+'.jpg'
 
         # Load the relief as the background image
         bg = gd.numpy.loadtxt(relief, skiprows=6)

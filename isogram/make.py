@@ -45,7 +45,7 @@ class make():
     num = 0
     #得到最小值和最大值
     for sr in inShp.shapeRecords():
-        if second_field == '':
+        if second_field == '无':
             num = sr.record[first_index]
         else:
             if rule == 'addition':
@@ -64,7 +64,7 @@ class make():
     weight = maximum/minimum/divide_class
     # 绘制多边形
     for sr in inShp.shapeRecords():
-        if second_field == '':
+        if second_field == '无':
             num = sr.record[first_index]
         else:
             if rule == 'addition':
@@ -101,9 +101,9 @@ class make():
     print(minimum)
     #img_path = path+file.split('.')[0]+'.jpg'
 
-    img_path = os.path.dirname(os.getcwd())+'/webGIS/static/isogram/'+file.split('.')[0]+'.jpg'
+    img_path = os.path.dirname(os.getcwd())+'/webGIS/static/isogram/images/'+file.split('.')[0]+'.jpg'
     img.save(img_path)
-    image = '/static/isogram/'+file.split('.')[0]+'.jpg'
+    image = '/static/isogram/images/'+file.split('.')[0]+'.jpg'
 
     return image
 

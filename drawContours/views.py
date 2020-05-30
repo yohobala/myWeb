@@ -1,4 +1,5 @@
 import json
+import shutil
 
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
@@ -24,11 +25,30 @@ def index(request):
             iwidth = int(request.POST.get('iwidth'))
             iheight = int(request.POST.get('iheight'))
             color = request.POST.get('color')
-            with open(os.path.join(path+f.name.split('.')[0]+'.asc'), "wb") as file:
+
+            with open(os.path.join(path+f.name), "wb") as file:
                 for chunk in f.chunks():
                     file.write(chunk)
-            contour().contour(path,f.name,interval,height)
+
+            filename = f.name.split('.')[0]
+            filePath = path + filename + '.zip'
+
+            zip_file = zipfile.ZipFile(filePath)
+            zip_list = zip_file.namelist()  # 得到压缩包里所有文件
+
+            path = path + filename + '/'
+
+            for file in zip_list:
+                zip_file.extract(file, path)  # 循环解压文件到指定目录
+
+            contour().contour(path,f.name.split('.')[0]+'.asc',interval,height)
             data = drawContours().drawContours(path,f.name,iwidth,iheight,color)
+
+            fp = os.path.join(os.path.dirname(os.getcwd()) + "/webGIS/data/drawContours/")
+            filename = f.name.split('.')[0]
+
+            shutil.rmtree(fp+filename)
+            os.remove(fp+filename+'.zip')
             return HttpResponse(data)
         elif flow == 2:
             f = request.FILES.get('file_obj')
@@ -68,6 +88,12 @@ def index(request):
             # with open(os.path.join(img_path), 'wb+') as f:  # 图片上传
             #     for item in fafafa.chunks():
             #         f.write(item)c
+            fp = os.path.join(os.path.dirname(os.getcwd()) + "/webGIS/data/drawContours/")
+            filename = f.name.split('.')[0]
+
+            shutil.rmtree(fp+filename)
+            os.remove(fp+filename+'.zip')
+
             return HttpResponse(data)
         elif flow == 3:
             f = request.FILES.get('file_obj')
@@ -106,6 +132,12 @@ def index(request):
             # f = open(jp, 'r')
             # # 获得一个字典格式的数据
             # data = json.load(f)
+            fp = os.path.join(os.path.dirname(os.getcwd()) + "/webGIS/data/drawContours/")
+            filename = f.name.split('.')[0]
+
+            shutil.rmtree(fp+filename)
+            os.remove(fp+filename+'.zip')
+
             response = JsonResponse({"status": '服务器接收成功', 'data': jf})
             return response
 

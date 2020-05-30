@@ -1,3 +1,5 @@
+import shutil
+
 from django.shortcuts import render
 from django.http import HttpResponse
 import os
@@ -72,6 +74,12 @@ def index(request):
             # with open(os.path.join(img_path), 'wb+') as f:  # 图片上传
             #     for item in fafafa.chunks():
             #         f.write(item)
+
+            fp = os.path.join(os.path.dirname(os.getcwd()) + "/webGIS/data/isogram/")
+            filename = f.name.split('.')[0]
+
+            shutil.rmtree(fp+filename)
+            os.remove(fp+filename+'.zip')
             return HttpResponse(imgPath)
 
     return render(request, 'isogram/isogram.html')

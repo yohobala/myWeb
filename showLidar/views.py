@@ -1,3 +1,5 @@
+import shutil
+
 from django.shortcuts import render
 from django.http import HttpResponse
 import os
@@ -45,6 +47,12 @@ def index(request):
                 if file.split('.')[1] == 'las':
                     img = showLidar()
                     imgPath = img.showLidar(path, file, cell)
+
+        fp = os.path.join(os.path.dirname(os.getcwd()) + "/webGIS/data/showLidar/")
+        filename = f.name.split('.')[0]
+
+        shutil.rmtree(fp + filename)
+        os.remove(fp + filename + '.zip')
 
         return HttpResponse(imgPath)
 

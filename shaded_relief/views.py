@@ -1,3 +1,5 @@
+import shutil
+
 from django.shortcuts import render
 from django.http import HttpResponse
 import os
@@ -70,7 +72,7 @@ def index(request):
                                 if fg[x][y] > maximum:
                                     maximum = fg[x][y]
 
-            data = '最大高程:'+ str(maximum) + '|' + '最小高程:' + str(minimum)
+            data = str(maximum) + '|' + str(minimum)
             return HttpResponse(data)
         elif flow == 2:
             f = request.FILES.get('file_obj')
@@ -88,6 +90,12 @@ def index(request):
             shaded = shaded_relief()
             print(name)
             imgPath = shaded.drawing(path, name, azimuth, altitude, z, scale, divide_class, hight, color)
+
+            fp = os.path.join(os.path.dirname(os.getcwd()) + "/webGIS/data/shaded_relief/")
+            filename = f.name.split('.')[0]
+
+            shutil.rmtree(fp+filename)
+            os.remove(fp+filename+'.zip')
 
             # with open(os.path.join(img_path), 'wb+') as f:  # 图片上传
             #     for item in fafafa.chunks():

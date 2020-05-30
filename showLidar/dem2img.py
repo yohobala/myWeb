@@ -51,10 +51,10 @@ class dem2img():
         im = im.convert('RGB')
 
         # Output image file
-        img_path = os.path.dirname(os.getcwd()) + '/webGIS/static/showLidar/' + file.split('.')[0] + '.jpg'
+        img_path = os.path.dirname(os.getcwd()) + '/webGIS/static/showLidar/images/' + file.split('.')[0] + '.jpg'
         # Save the image
         im.save(img_path)
 
-        image = '/static/showLidar/' + file.split('.')[0] + '.jpg'
+        image = '/static/showLidar/images/' + file.split('.')[0] + '.jpg'
 
         return  image
