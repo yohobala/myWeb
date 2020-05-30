@@ -6,12 +6,12 @@
                }
         .covid{
            width:calc(99vw);
-           height:300px;
+           height:500px;
            position: relative;
            }
         .covid_title{
            width:calc(99vw);
-           height:300px;
+           height:500px;
            float:right;
            display:block;
            overflow: hidden；
@@ -21,17 +21,18 @@
            background-position: center;
            background-blend-mode: multiply;
 
-           line-height: 300px;
+           line-height: 500px;
            text-align: center;
            text-decoration: none;
            background-color: rgba(169,169,169, 0.85);
            color:#ffffff;
+           background-image: url("images/covid.jpg");
+           background-size: 100% 100%
 
         }
         .covid_span{
            font-family : "微软雅黑";
            font-size: 40px;
-           color:rgb(76, 76, 76);
         }
         .webgis_list{
               width:calc(99vw)
@@ -84,31 +85,26 @@
            text-decoration: none
            }
         .function_detail:nth-of-type(1){
-           background-color: rgba(218,165,32, 0.85);
-           background-image: url("images/showShp.jpg");
-           background-size: 100% 100%
-        }
-        .function_detail:nth-of-type(2){
            background-color: rgba(171, 60, 22, 0.85);
            background-image: url("images/isogram.jpg");
            background-size: 100% 100%
         }
-        .function_detail:nth-of-type(3){
+        .function_detail:nth-of-type(2){
            background-color: rgba(0, 94, 149, 0.85);
            background-image: url("images/dot_density.jpg");
            background-size: 100% 100%
         }
-        .function_detail:nth-of-type(4){
+        .function_detail:nth-of-type(3){
            background-color: rgba(51, 128, 51, 0.85);
            background-image: url("images/shape_relief.jpg");
            background-size: 100% 100%
         }
-        .function_detail:nth-of-type(5){
+        .function_detail:nth-of-type(4){
            background-color: rgba(255,222,173, 0.85);
            background-image: url("images/contours.jpg");
            background-size: 100% 100%
         }
-        .function_detail:nth-of-type(6){
+        .function_detail:nth-of-type(5){
            background-color: rgba(139,0,139, 0.85);
            background-image: url("images/showLidar.jpg");
            background-size: 100% 100%

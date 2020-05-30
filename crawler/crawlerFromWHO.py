@@ -94,6 +94,8 @@ def transform_time(timeStamp):
 
 #匹配国家缩写，获取国家中英文名字
 def countryName(name,countryData):
+    ChineseName = ''
+    EnglishName = ''
     for line in countryData:
         if name in line[2]:
             ChineseName = line[0]

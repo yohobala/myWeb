@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://echarts.apache.org/zh/dist/echarts-en.min.js"></script>
+    <script src="https://echarts.apache.org/zh/dist/echarts-gl.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <meta charset="UTF-8">
     <title>等高线</title>
 </head>
@@ -24,8 +27,15 @@
         <input type="text" name="iheight2" placeholder="图像高" />
         <input type="text" name="color2" placeholder="等高线颜色" />
         <input type="submit" id="databtn" name="databtn" value="提交"/>
+
     </form>
     <img src=''  id="img">
+    <form id="form3" enctype="multipart/form-data" target="ifm1">
+         <iframe id="ifm3" name="ifm3" style="display: none;"></iframe>
+         <input type="file" name="file3" onchange="changeUpalod();" />
+        <input type="submit" id="databtn2" name="databtn2" value="3维提交"/>
+    </form>
+    <div id="main" style="width: 1000px;height:1000px;"></div>
 <script>
 
  $(document).ready(function(){
@@ -91,6 +101,69 @@
             $("#img").attr("src", data);
             $("#img").show();
             }
+        })
+    })
+ })
+ $(document).ready(function(){
+    $("#databtn2").click(function () {
+
+
+        //创建对象
+        var formdata = new FormData();
+        var file_obj = $('[name=file3]')[0].files[0];
+        formdata.append('file_obj',file_obj);
+        formdata.append('flow','3');
+        $.ajax({
+          url: '',
+          type: 'post',
+          data: formdata,
+          //这两个要必须写
+          processData:false,  //不预处理数据  因为FormData 已经做了
+          contentType:false,  //我不指定编码了 因为FormData 已经做了
+
+          success: function (path) {
+                  // 基于准备好的dom，初始化echarts实例
+              var myChart = echarts.init(document.getElementById('main'));
+              myChart.showLoading();
+              data = path.data
+              myChart.setOption({
+                grid3D: {
+                   environment: '#000',
+                   light: {
+                       main: {
+                       shadow: true,
+                       quality: 'ultra',
+                       intensity: 1.5
+                       }
+                   }
+                },
+                xAxis3D: {
+                },
+                yAxis3D: {
+                },
+                zAxis3D: {
+                },
+                visualMap: {
+                   show: false,
+                   min: 0,
+                   max: 1000,
+                   inRange: {
+                       color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026'],
+                       symbolSize: [30, 100]
+                   },
+                },
+                dataset: {
+                   source: data
+                },
+                series: [{
+                   type: 'bar3D',
+                   shading: 'realistic',
+                   data: data,
+                   barSize: 1,
+                }]
+              })
+               myChart.hideLoading();
+          }
         })
     })
  })

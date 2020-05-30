@@ -97,9 +97,8 @@
         url: '',
         type: 'post',
         data: formdata,
-        //这两个要必须写
-        processData:false,  //不预处理数据  因为FormData 已经做了
-        contentType:false,  //我不指定编码了 因为FormData 已经做了
+        processData:false,
+        contentType:false,
         success: function (data) {
             $("#img").attr("src", data);
             $("#img").show();

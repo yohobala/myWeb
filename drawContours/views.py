@@ -1,5 +1,7 @@
+import json
+
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import os
 import zipfile
 import shapefile
@@ -9,6 +11,7 @@ import rarfile
 
 from .contour import contour
 from .drawContours import drawContours
+from .threeDimensional import threeDimensional
 
 def index(request):
     if request.method == 'POST':
@@ -64,7 +67,46 @@ def index(request):
                        data = drawContours().drawContours(path, file, iwidth, iheight, color)
             # with open(os.path.join(img_path), 'wb+') as f:  # 图片上传
             #     for item in fafafa.chunks():
-            #         f.write(item)
+            #         f.write(item)c
             return HttpResponse(data)
+        elif flow == 3:
+            f = request.FILES.get('file_obj')
+            path = os.path.join(os.path.dirname(os.getcwd()) + "/webGIS/data/drawContours/")
+            filename = f.name
+            filePath = path + filename.split('.')[0] + '/'
+
+            with open(os.path.join(path + filename), 'wb+') as destination:
+                for chunk in f.chunks():
+                    destination.write(chunk)
+
+            zip_file = zipfile.ZipFile(path + filename)
+            zip_list = zip_file.namelist()  # 得到压缩包里所有文件
+
+            path = filePath
+
+            for file in zip_list:
+                zip_file.extract(file, path)  # 循环解压文件到指定目录
+
+            l = os.listdir(path)
+            existFile = 0;
+            for file in l:
+                if file[-3:] == 'shp':
+                    jf = threeDimensional().threeDimensional(path, file)
+                    existFile = 1;
+
+            if existFile != 1:
+                path = path + filename.split('.')[0] + '/'
+                l = os.listdir(path)
+                for file in l:
+                    if file.split('.')[1] == 'shp':
+                        jf = drawContours().drawContours(path, file)
+
+            # print(jp)
+
+            # f = open(jp, 'r')
+            # # 获得一个字典格式的数据
+            # data = json.load(f)
+            response = JsonResponse({"status": '服务器接收成功', 'data': jf})
+            return response
 
     return render(request, 'drawContours/drawContours.html')

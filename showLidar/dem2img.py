@@ -34,12 +34,9 @@ class dem2img():
         s = 1
         v = 1
 
-        # We'll step through colors from:
-        # blue-green-yellow-orange-red.
-        # Blue=low elevation, Red=high-elevation
         step = h / 256.0
 
-        # Build the palette
+
         for i in range(256):
             rp, gp, bp = colorsys.hsv_to_rgb(h, s, v)
             r = int(rp * 255)
