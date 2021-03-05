@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'drawContours',
     'showShp',
     'showLidar',
+    'myTest',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

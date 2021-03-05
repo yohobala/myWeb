@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>地形阴影（晕染地图）</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'isogram/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'shaded_relief/style.css' %}">
 </head>
 <body>
     <form id="form1" enctype="multipart/form-data" target="ifm1">
@@ -16,7 +16,7 @@
     <form id="form2" enctype="multipart/form-data" target="ifm1">
         <iframe id="ifm2" name="ifm2" style="display: none;"></iframe>
         <div class="second">
-            <div class="div1" >
+            <div class="div2" >
                 <div class="text_tag">
                     <span >
                         <font style="vertical-align: inherit;" >最大高程值</font>
@@ -24,7 +24,7 @@
                 </div>
                 <span id="max"></span>
             </div>
-                       <div class="div1" >
+            <div class="div2" >
                 <div class="text_tag">
                     <span >
                         <font style="vertical-align: inherit;" >最小高程值</font>
@@ -68,15 +68,15 @@
             </div>
         </div>
         <div class="four">
-            <div class="div3" >
+            <div class="div4" >
                <span class="text_tag">
-                    <font style="vertical-align: inherit;" >高程</font>
+                    <font style="vertical-align: inherit;" >高程区间</font>
                 </span>
                 <input type="text" name="hight" class="frame" placeholder="高程" />
             </div>
-            <div class="div3" >
+            <div class="div4" >
                <span class="text_tag">
-                    <font style="vertical-align: inherit;" >颜色</font>
+                    <font style="vertical-align: inherit;" >颜色区间</font>
                 </span>
                 <input type="text" name="color" class="frame" placeholder="颜色，十六进制如白色#FFFFFF" />
             </div>

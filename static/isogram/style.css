@@ -39,16 +39,19 @@
 .text_tag{
            width:20%;
            font-family : "楷体";
-           font-size: 15px;
+           font-size: 10px;
+
+
+           line-height: 20px;
            text-align: center;
            text-decoration: none
            position: relative;
            float:left;
 }
 .rule_text_tag{
-           width:35%;
+           width:50%;
            font-family : "楷体";
-           font-size: 15px;
+           font-size: 10px;
            text-align: center;
            text-decoration: none
            position: relative;

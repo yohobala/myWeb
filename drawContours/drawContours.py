@@ -9,7 +9,7 @@ import os
 import shapefile
 import pngcanvas
 from PIL import Image
-import cv2 as cv
+
 
 
 class drawContours():
