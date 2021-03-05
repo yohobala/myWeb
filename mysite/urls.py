@@ -27,10 +27,7 @@ urlpatterns = [
     path('COVID/',include('COVID.urls')),
     path('admin/', admin.site.urls),
     path('isogram/',include('isogram.urls')),
-    path('shadedrelief/',include('shaded_relief.urls')),
-    path('drawContours/',include('drawContours.urls')),
     path('showShp/',include('showShp.urls')),
     path('showLidar/',include('showLidar.urls')),
-    path('myTest/',include('myTest.urls')),
     url(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT }, name='static'),
 ]
